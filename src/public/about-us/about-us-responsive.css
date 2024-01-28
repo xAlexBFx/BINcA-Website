@@ -1,0 +1,35 @@
+/*Big desktops*/
+@media (min-width: 1200px) {
+    
+}
+
+/*Horizontal tablets and normal desktops*/
+@media (max-width: 1200px) {
+
+}
+
+/*Horizontal mobiles or vertical tablets*/
+@media (max-width: 768px) {
+    .main-center-c {
+        flex-direction: column;
+    }
+
+    .main-article-center-1-c {
+        margin: 20px 0px 20px 0px;
+        width: 75%;
+        min-height: 300px;        min-height: 300px;
+    }
+
+    .main-article-center-2-c {
+        margin: 20px 0px 20px 0px;
+        width: 75%;
+        min-height: 300px;
+    }
+}
+
+/*Vertical phones*/
+@media (max-width: 480px) {
+    .main-footer-video-div-c {
+        width: 75%;
+    }
+}

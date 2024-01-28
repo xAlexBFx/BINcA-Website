@@ -1,0 +1,290 @@
+.main-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.form-container-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    height: 52rem;
+    margin: 3rem 0rem 3rem 0rem;
+    border-radius: 4px 4px 4px 4px;
+    box-sizing: border-box;
+    border: solid 2px var(--primary-color);
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.503);
+    overflow: hidden;
+}
+
+.decoration-section-c {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: url(./src/starting2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    box-shadow: inset 0px 0px 8px 10px rgba(0, 0, 0, 0.542);
+}
+
+.crystal-div-c {
+    position: relative;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(25px);
+    filter: brightness(0.8);
+}
+
+.request-form-section-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding: 5%;
+    background-color: var(--primary-background-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bx {
+    color: var(--primary-color-hover);
+    font-size: 1.2rem;
+}
+
+.request-form-section-c label {
+    font-size: var(--primary-font-size);
+    color: var(--primary-font-color);
+}
+.request-form-section-c h1 {
+    font-size: var(--headers-font-size);
+    margin-bottom: 1rem;
+}
+
+.request-form-c {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    padding: 2%;
+    text-align: center;
+    color: var(--primary-font-color);
+    min-width: 250px;
+    max-width: 500px;
+}
+
+.input-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: transparent;
+    width: 80%;
+    height: fit-content;
+    border-radius: 4px;
+    padding: 1%;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.input-div-c p {
+    color: var(--negative-color);
+    font-size: var(--primary-font-size);
+}
+
+.active-error-c {
+    display: flex;
+}
+
+.input-div-label-c {
+    margin-bottom: 10px;
+    align-self: flex-start;
+    color: var(--primary-font-color);
+    font-size: var(--primary-font-size);
+}
+
+.request-form-input-c {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    overflow-x: hidden;
+    color: var(--primary-font-color);
+    font-size: var(--primary-font-size);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.29);
+    padding: 1%;
+    border: 1px solid var(--secondary-background-color);
+    box-sizing: border-box;
+    background-color: transparent;
+    transition: .6s;
+    border-radius: 4px;
+    outline: none;
+}
+
+.request-form-input-c:focus {
+    border:1px solid var(--primary-color-hover);
+    transform: translateY(-5px);
+}
+
+.request-form-input-c::after {
+    content: "";
+    width: 0%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color-hover);
+    transition: width .6s;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.request-form-input-c:focus::after {
+    width: 100%;
+}
+
+.request-form-textarea-c {
+    resize: none;
+    height: 5rem;
+    padding: 2%;
+}
+
+.request-form-file-input-c {
+    display: none;
+}
+
+.file-label-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-background-color);
+    padding: 2%;
+    width: 50%;
+    height: 3rem;
+    cursor: pointer;
+    transition: transform .6s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.29);
+}
+
+.file-label-c:hover {
+    transform: translateY(-5px);
+}
+
+.file-selected-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 10rem;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 2px dashed var(--secondary-background-color);
+    margin-top: 20px;
+}
+
+.file-selector-image-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.file-image-h1-c {
+    user-select: none;
+    font-size: var(--headers-font-size);
+    color: var(--primary-font-color);
+}
+
+.file-selector-image-div-c img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+@keyframes errorAnimation {
+    0% {
+        transform: translateX(-5px);
+    } 25% {
+        transform: translateX(5px);
+    } 50% {
+        transform: translateX(-5px);
+    }70%{
+        transform: translateX(5px);
+    }100% {
+        transform: translateX(0px);
+    }
+}
+
+.input-error-c {
+    border: 1px solid var(--negative-color);
+    animation: errorAnimation .8s;
+}
+
+.form-submit-button-c {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 5%;
+    box-sizing: border-box;
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-background-color);
+    transition: border .6s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.29);
+    color: var(--primary-font-color);
+    background-color: var(--primary-color);
+    font-size: var(--primary-font-size);
+}
+
+.form-submit-button-c:hover {
+    border: 1px solid var(--primary-color-hover);
+}
+
+.form-submit-button-c::after {
+    content: "";
+    width: 0%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color-hover);
+    transition: width .6s;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.form-submit-button-c:hover::after {
+    width: 100%;
+}
+
+.bx-send {
+    color: var(--primary-font-color);
+    transition: transform .6s;
+}
+
+.form-submit-button-c:hover .bx-send {
+    transform: translateX(15px);
+}

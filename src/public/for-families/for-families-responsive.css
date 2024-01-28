@@ -1,0 +1,19 @@
+/*Big desktops*/
+@media (min-width: 1200px) {
+
+}
+
+/*Horizontal tablets and normal desktops*/
+@media (max-width: 1200px) {
+
+}
+
+/*Horizontal mobiles or vertical tablets*/
+@media (max-width: 768px) {
+
+}
+
+/*Vertical phones*/
+@media (max-width: 480px) {
+    
+}

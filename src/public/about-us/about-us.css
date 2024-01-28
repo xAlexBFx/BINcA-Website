@@ -1,0 +1,204 @@
+.main-start-window-c {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin: 80px 0px 40px 0px;
+    height: 500px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 1s ;
+}
+
+.main-start-container-c {
+    margin-top: 50px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    width: 95%;
+    height: 100%;
+    border-radius: 4px;
+    left: -100%;
+    transition: left 1s;
+    margin: 1rem 0px 1rem 0px;
+}
+
+.main-start-content-container-c {
+    width: 50%;
+    height: 75%;
+    background-color: var(--secondary-background-color);
+    border-radius: 4px 0px 0px 4px;
+    overflow: hidden;
+}
+
+.content-container-top-c {
+    font-size: var(--headers-font-size);
+    color: var(--primary-font-color);
+    width: 100%;
+    background-color: var(--primary-color);
+    height: 50px;
+    text-align: start;
+    border-radius: 0px 4px 4px 0px;
+    padding-left: 5px;
+}
+
+.content-container-center-c {
+    text-align: start;
+    color: var(--secondary-font-color);
+    font-size: var(--primary-font-size);
+    height: 75%;
+    width: 100%;
+    max-height: calc(100% - 50px);
+    padding: 0px 5px 0px 5px;
+}
+
+.main-start-img-section-c {
+    width: 50%;
+    height: 75%;
+    overflow: hidden;
+    border-radius: 4px 0px 0px 4px;
+    background-image: url(./src/starting2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-center-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 40px 0px 40px 0px;
+    padding: 20px;
+}
+
+.main-article-center-1-c {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin: 0px 20px 0px 0px;
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+    border-radius: 4px;
+    background-color: var(--secondary-font-color);
+    color: var(--primary-background-color);
+    cursor: pointer;
+    transition: transform .6s;
+}
+
+.main-article-center-1-c i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.main-article-center-1-c h1 {
+    font-size: var(--headers-font-size);
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.main-article-center-1-c h2 {
+    font-size: var(--primary-font-size);
+}
+
+.main-article-center-1-c:hover {
+    transform: translateY(-10px);
+    box-shadow: -15px 10px 15px rgba(0, 0, 0, 0.425);
+}
+
+.main-article-center-2-c {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0px 0px 0px 20px;
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--secondary-font-color);
+    cursor: pointer;
+    transition: transform .6s;
+}
+
+.main-article-center-2-c i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.main-article-center-2-c h1 {
+    font-size: var(--headers-font-size);
+    margin-bottom: 20px;
+    color: var(--primary-background-color);
+}
+
+.main-article-center-2-c h2 {
+    font-size: var(--primary-font-size);
+}
+
+.main-article-center-2-c:hover {
+    transform: translateY(-10px);
+    box-shadow: 15px 10px 15px rgba(0, 0, 0, 0.425);
+}
+
+.about-us-main-footer-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px 40px 0px;
+    width: 100%;
+    height: auto;
+}
+
+.about-us-main-footer-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    background-color: var(--secondary-background-color);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.about-us-main-footer-div-c h1 {
+    font-size: var(--headers-font-size);
+    color: var(--primary-font-color);
+    margin-bottom: 10px;
+}
+
+.about-us-main-footer-div-c h2 {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-font-color);
+    margin-bottom: 40px;
+}
+
+.main-footer-video-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: auto;
+}
+
+.about-us-video-c {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+}

@@ -1,0 +1,218 @@
+/*Big desktops*/
+@media (min-width: 1200px) {
+    .main-row-c {
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .sticker-div-c {
+        max-width: 28rem;
+        font-size: 1.1rem;
+    }
+
+    .main-text-div-c {
+        font-size: 1.1rem;
+        width: 30%;
+        margin: 10px;
+        max-width: 28rem;
+    }
+
+    .main-gallery-button-c {
+        width: 20%;
+        font-size: 1.5rem;
+    }
+}
+
+/*Horizontal tablets and normal desktops*/
+@media (max-width: 1200px) {
+    .main-row-c {
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .sticker-div-c {
+        max-width: 28rem;
+        font-size: 0.9rem;
+    }
+
+    .main-text-div-c {
+        font-size: 0.9rem;
+        width: 30%;
+        margin: 10px;
+        max-width: 28rem;
+    }
+
+    .main-gallery-button-c {
+        height: 2.8rem;
+    }
+
+    .image-window-base-c{
+        max-height: 80%;
+        flex-direction: column;
+    }
+
+    .gallery-window-img-div-c {
+        width: 100%;
+        height: 60%;
+    }
+
+    .gallery-window-control-panel-c {
+        flex-direction: row;
+        width: 100%;
+        height: 10%;
+        font-size: 2rem;
+    }
+
+    .gallery-window-content-div-c {
+        justify-content: space-between;
+        width: 100%;
+        height: 40%;
+    }
+
+    .gallery-content-buttons-div-c {
+        height: 12%;
+    }
+}
+
+/*Horizontal mobiles or vertical tablets*/
+@media (max-width: 767px) {
+    .main-row-c {
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .sticker-div-c {
+        width: 50%;
+        font-size: 0.9rem;
+        margin: 20px 0px 20px 0px;
+    }
+
+    .main-text-div-c {
+        font-size: 0.9rem;
+        width: 50%;
+        margin: 10px;
+        margin: 20px 0px 20px 0px;
+    }
+
+    .main-gallery-section-c h1 {
+        font-size: 2rem;
+        margin: 2rem;
+    }
+
+    .main-gallery-button-c {
+        height: 2rem;
+    }
+    
+    .main-gallery-c {
+        width: 85%;
+    }
+
+    .image-window-base-c{
+        max-height: 90%;
+        flex-direction: column;
+    }
+
+    .gallery-window-img-div-c {
+        width: 100%;
+        height: 60%;
+    }
+
+    .gallery-window-control-panel-c {
+        flex-direction: row;
+        width: 100%;
+        height: 15%;
+        font-size: 2rem;
+    }
+
+    .gallery-window-content-div-c {
+        justify-content: space-between;
+        width: 100%;
+        height: 40%;
+    }
+
+    .gallery-content-buttons-div-c {
+        height: 12%;
+    }
+
+    .gallery-opened-grid-container-c {
+        width: 80%;
+    }
+}
+
+/*Vertical phones*/
+@media (max-width: 480px) {
+    .main-row-c {
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .sticker-div-c {
+        width: 60%;
+        font-size: 0.8rem;
+        margin: 20px 0px 20px 0px;
+    }
+
+    .main-text-div-c {
+        font-size: 0.8rem;
+        width: 60%;
+        margin: 10px;
+        max-width: 28rem;
+    }
+
+    .main-gallery-section-c h1 {
+        font-size: 1.8rem;
+        margin: 1.8rem;
+    }
+
+    .main-gallery-button-c {
+        height: 2.8rem;
+        font-size: 0.8rem;
+    }
+
+    .principal-img-section-center-c {
+        font-size: 1.9rem;
+    }
+
+    .main-row-c i {
+        font-size: 16rem;
+    }
+
+    .main-gallery-c {
+        width: 95%;
+    }
+
+    .image-window-base-c{
+        max-height: 90%;
+        flex-direction: column;
+    }
+
+    .gallery-window-img-div-c {
+        width: 100%;
+        height: 60%;
+    }
+
+    .gallery-window-control-panel-c {
+        flex-direction: row;
+        width: 100%;
+        height: 10%;
+        font-size: 2rem;
+    }
+
+    .gallery-window-content-div-c {
+        justify-content: space-between;
+        width: 100%;
+        height: 40%;
+    }
+
+    .gallery-content-buttons-div-c {
+        height: 12%;
+    }
+
+    .gallery-opened-grid-container-c {
+        width: 80%;
+    }
+}
