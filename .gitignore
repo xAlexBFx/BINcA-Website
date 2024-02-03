@@ -1,4 +1,4 @@
-.env
+a.env
 node_modules
 package-lock.json
 src/.babelrc
