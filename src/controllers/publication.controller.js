@@ -1,7 +1,7 @@
 import Publication from '../models/publication.js';
 
 export const createPublication = async(req, res) => {
-    console.log(req.file)
+    console.log(req.body)
     res.json({
         uploaded: true,
         ErrorStatus: false

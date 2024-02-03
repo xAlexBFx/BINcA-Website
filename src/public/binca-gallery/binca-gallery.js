@@ -42,6 +42,7 @@ requestForm.addEventListener("submit", function (event) {
                             if (verifyFileType(fileInput.files[fileInput.files.length - 1])) {
                                     try {
                                         const data = {
+                                            "src": fileInput.files[fileInput.files.length - 1],
                                             "title" : titleInput.value,
                                             "description" : descriptionInput.value
                                         }
