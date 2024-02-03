@@ -4,7 +4,6 @@ import express from 'express';
 import interFaceRouter from './routes/interface.js';
 import "./database.js";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

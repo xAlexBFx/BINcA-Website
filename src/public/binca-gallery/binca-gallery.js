@@ -32,6 +32,8 @@ function verifyFileType(file) {
 requestForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    const formData = new FormData();
+
     if(titleInput.value.length > 8 && titleInput.value.length <= 30) {
         if(descriptionInput.value.length > 8 && descriptionInput.value.length <= 60) {
             if(validateInput(titleInput) == true) {
@@ -39,9 +41,7 @@ requestForm.addEventListener("submit", function (event) {
                         if(fileInput.files && fileInput.files.length > 0) {
                             if (verifyFileType(fileInput.files[fileInput.files.length - 1])) {
                                     try {
-                                        //The file can not be sended in JSON format!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                         const data = {
-                                            "src": fileInput.files[fileInput.files.length - 1],
                                             "title" : titleInput.value,
                                             "description" : descriptionInput.value
                                         }

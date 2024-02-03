@@ -2,7 +2,7 @@ import { Router } from "express"
 import path from "path";
 import { serverDirName } from "../server.js";
 import * as publicationCtrl from '../controllers/publication.controller.js'
-import multer from "multer"
+import multer from "multer";
 
 const upload = multer({dest: "images"});
 const router = Router();
