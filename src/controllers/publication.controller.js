@@ -40,24 +40,25 @@ export const createPublication = async(req, res) => {
 //         })
 //     }
 // }
-// export const loadPublicationChunk = async(req, res) => {
-//     try {
-//         const reqOrderId = parseInt(req.params.loadedPublications);   
-//         let chunk = {
-//             chunkList: [],
-//             nPublications: 0,
-//             status:false
-//         }
-//         for (let i = 0; i < 6; i++) {
-//             chunk.chunkList.push(await Publication.findOne({"orderId" : reqOrderId + i}))
-//             chunk.nPublications++
-//             chunk.status = true
-//         }
-//         res.json(chunk)
-//     } catch (err) {
-//         console.log(`There is a problem in the server: ${err}`)
-//     }
 
+export const loadPublicationChunk = async(req, res) => {
+    try {
+        const reqOrderId = parseInt(req.params.loadedPublications);   
+        let chunk = {
+            chunkList: [],
+            nPublications: 0,
+            status:false
+        }
+        for (let i = 0; i < 6; i++) {
+            chunk.chunkList.push(await Publication.findOne({"orderId" : reqOrderId + i}))
+            chunk.nPublications++
+            chunk.status = true
+        }
+        res.json(chunk)
+    } catch (err) {
+        console.log(`There is a problem in the server: ${err}`)
+    }
+}
 
 export const deletePublication = async(req, res) => {
     try{
