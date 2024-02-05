@@ -22,7 +22,6 @@ export const createPublication = async(req, res) => {
                 "date" : date,
                 "orderId" : orderId
                 })
-                
         } else {
             res.json({
                 "message": "There is a problem, there is a missed value",
