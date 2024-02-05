@@ -55,15 +55,15 @@
             </section>
             <section class="request-form-section-c">
                 <h1>Upload your own publications to the BINcA gallery!</h1>
-                <form id="request-form" class="request-form-c" action="">
+                <form id="request-form" class="request-form-c" action="http://localhost:8080/binca-gallery" method="post" enctype="multipart/form-data">
                     <div id="title-input-div" class="input-div-c">
                         <label class="input-div-label-c" for="title-input"><i class='bx bx-edit'></i>Type Your Title</label>
-                        <input id="title-input" class="request-form-input-c" type="text" placeholder="Type Here..." required>
+                        <input id="title-input" class="request-form-input-c" type="text" name="title" placeholder="Type Here..." required>
                         <p id="title-input-error-paragraph" class="error-paragraph-c"></p>
                     </div>
                     <div id="description-input-div" class="input-div-c">
                         <label class="input-div-label-c" for="description-input"><i class='bx bx-edit'></i>Type Your Description</label>
-                        <textarea id="description-input" class="request-form-textarea-c request-form-input-c" type="text" placeholder="Type Here..." required></textarea>
+                        <textarea id="description-input" class="request-form-textarea-c request-form-input-c" type="text" name="description" placeholder="Type Here..." required></textarea>
                         <p id="description-input-error-paragraph" class="error-paragraph-c"></p>
                     </div>
                     <div id="file-input-div" class="input-div-c">

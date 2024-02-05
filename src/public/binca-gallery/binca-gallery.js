@@ -31,9 +31,6 @@ function verifyFileType(file) {
 
 requestForm.addEventListener("submit", function (event) {
     event.preventDefault();
-
-    const formData = new FormData();
-
     if(titleInput.value.length > 8 && titleInput.value.length <= 30) {
         if(descriptionInput.value.length > 8 && descriptionInput.value.length <= 60) {
             if(validateInput(titleInput) == true) {
@@ -41,27 +38,7 @@ requestForm.addEventListener("submit", function (event) {
                         if(fileInput.files && fileInput.files.length > 0) {
                             if (verifyFileType(fileInput.files[fileInput.files.length - 1])) {
                                     try {
-                                        const data = {
-                                            "src": fileInput.files[fileInput.files.length - 1],
-                                            "title" : titleInput.value,
-                                            "description" : descriptionInput.value
-                                        }
-                                        console.log(data.src)
-                                        fetch("http://localhost:8080/binca-gallery", {
-                                            method: 'POST',
-                                            headers: {
-                                                "Content-Type": "application/json"
-                                            },
-                                            body: JSON.stringify(data)
-                                        })
-                                        .then((res) => res.json())
-                                        .then((res) => {
-                                            if(res.ErrorStatus == true) {
-                                                throw new Error(res.message)
-                                            } else{
-                                                console.log(res.uploaded)
-                                            }
-                                        })
+                                        requestForm.submit()
                                     } catch (err) {
                                         console.log(err)
                                     }

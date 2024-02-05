@@ -2,7 +2,7 @@ import {Schema, model} from 'mongoose';
 
 const publicationSchema = new Schema({
     src: {
-        type: String,
+        type: Object,
         require: true,
         trim: true
     },

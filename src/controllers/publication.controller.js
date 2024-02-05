@@ -1,45 +1,42 @@
 import Publication from '../models/publication.js';
+import path from 'path';
 
 export const createPublication = async(req, res) => {
-    console.log(req.body)
-    res.json({
-        uploaded: true,
-        ErrorStatus: false
-    })
+    try{
+        const dataBody = req.body;
+        const allowedFileTypes = ['image/jpeg', 'image/png'];
+        if(allowedFileTypes.includes(req.file.mimetype) && dataBody.title && dataBody.description) {
+            const src = req.file;
+            const title = dataBody.title;
+            const description = dataBody.description;
+            const date = new Date();
+            const orderId = Publication.length + 1;
+            const newPublication = new Publication({
+                "src": {
+                    imageName: src.filename + path.extname(src.originalname),
+                    imagePath: src.path + path.extname(src.originalname),
+                    contentType: src.mimetype
+                }, 
+                "title" : title,
+                "description" : description,
+                "date" : date,
+                "orderId" : orderId
+                })
+                
+        } else {
+            res.json({
+                "message": "There is a problem, there is a missed value",
+                "ErrorStatus" : true
+            })
+        }
+    } catch (err) {
+        console.log(err)
+        res.json({
+            "message": "Internal server problem",
+            "ErrorStatus" : true
+        })
+    }
 }
-//     try{
-//         const dataBody = req.body;
-//         if(dataBody.src && dataBody.title && dataBody.description) {
-//             const src = req.body.src;
-//             console.log(req.body)
-//             const title = req.body.title;
-//             const description = req.body.description;
-//             const date = new Date()
-//             const orderId = Publication.length + 1
-//             //Process the data before add the data to the database
-//                 const newPublication = new Publication({
-//                     "src": src, 
-//                     "title" : title,
-//                     "description" : description,
-//                     "date" : date,
-//                     "orderId" : orderId
-//                     })
-//                 console.log(newPublication)
-
-//         } else {
-//             res.json({
-//                 "message": "There is a problem, there is a missed value",
-//                 "ErrorStatus" : true
-//             })
-//         }
-//     } catch (err) {
-//         console.log(err)
-//         res.json({
-//             "message": "Internal server problem",
-//             "ErrorStatus" : true
-//         })
-//     }
-// }
 
 export const loadPublicationChunk = async(req, res) => {
     try {

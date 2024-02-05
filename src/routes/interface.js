@@ -4,7 +4,7 @@ import { serverDirName } from "../server.js";
 import * as publicationCtrl from '../controllers/publication.controller.js'
 import multer from "multer";
 
-const upload = multer({dest: "images"});
+const upload = multer({dest: "src/images", limits: { fileSize: 1024 * 1024 * 5 }})
 const router = Router();
 
 router.get('/home', (req, res) => {
