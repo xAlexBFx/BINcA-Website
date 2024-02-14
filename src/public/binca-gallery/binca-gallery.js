@@ -15,10 +15,8 @@ requestForm.setAttribute('novalidate', 'true');
 
 fileInput.addEventListener('change', (event) => {
     const selectedFile = event.target.files[event.target.files.length - 1];
-
     if (selectedFile && verifyFileType(selectedFile)) {
-        fileImageH1.style.display = "none"
-        fileSelectorImageDiv.innerHTML = `<img src="./src/starting2.jpg" alt="">`;
+            showSelectedImage(selectedFile)
     } else {
         errorParagraphControl(fileInput ,"You must select an image");
     }
@@ -38,7 +36,18 @@ requestForm.addEventListener("submit", function (event) {
                         if(fileInput.files && fileInput.files.length > 0) {
                             if (verifyFileType(fileInput.files[fileInput.files.length - 1])) {
                                     try {
-                                        requestForm.submit()
+                                        const formData = new FormData(this)
+                                        fetch('http://localhost:8080/binca-gallery', {
+                                            method: 'POST',
+                                            body: formData,
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            console.log(data)
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        });
                                     } catch (err) {
                                         console.log(err)
                                     }
@@ -63,6 +72,17 @@ function validateInput(input) {
 
     else if((InputFilter.test(input.value) == false)){ 
         return false;
+    }
+}
+
+function showSelectedImage (image) {
+    if (image) {
+        const lector = new FileReader();
+        lector.onload = function (e) {
+            fileImageH1.style.display = "none";
+            fileSelectorImageDiv.innerHTML =`<img src="${e.target.result}" alt="Your Image">`;
+        };  
+        lector.readAsDataURL(image);
     }
 }
 

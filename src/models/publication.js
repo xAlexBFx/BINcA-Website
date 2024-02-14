@@ -1,8 +1,18 @@
 import {Schema, model} from 'mongoose';
 
 const publicationSchema = new Schema({
-    src: {
-        type: Object,
+    imageSrc: {
+        type: Buffer,
+        require: true,
+        trim: true
+    },
+    imageName: {
+        type: String,
+        require: true,
+        trim: true
+    },
+    imageType: {
+        type: String,
         require: true,
         trim: true
     },
@@ -17,7 +27,7 @@ const publicationSchema = new Schema({
         trim: true
     },
     date: {
-        type: Date,
+        type: String,
         require: true,
         trim: true
     },

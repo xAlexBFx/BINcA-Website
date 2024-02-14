@@ -1,5 +1,14 @@
 import Publication from '../models/publication.js';
-import path from 'path';
+
+function getCleanDate() {
+    let dateNow = new Date();
+
+    let month = String(dateNow.getMonth() + 1).padStart(2, '0');
+    let day = String(dateNow.getDate()).padStart(2, '0');
+    let year = dateNow.getFullYear();
+
+    return `${month}/${day}/${year}`;
+}
 
 export const createPublication = async(req, res) => {
     try{
@@ -9,19 +18,23 @@ export const createPublication = async(req, res) => {
             const src = req.file;
             const title = dataBody.title;
             const description = dataBody.description;
-            const date = new Date();
-            const orderId = Publication.length + 1;
+            const date = getCleanDate();
+            const orderId = await Publication.countDocuments() + 1;
             const newPublication = new Publication({
-                "src": {
-                    imageName: src.filename + path.extname(src.originalname),
-                    imagePath: src.path + path.extname(src.originalname),
-                    contentType: src.mimetype
-                }, 
+                "imageSrc" : src.buffer,
+                "imageName" : src.originalname,
+                "imageType" : src.mimetype,
                 "title" : title,
                 "description" : description,
                 "date" : date,
                 "orderId" : orderId
                 })
+                const savedPublication = await newPublication.save()
+                if(savedPublication) {
+                    res.json({
+                        "message": "Publication uploaded successfully",
+                    })
+                }
         } else {
             res.json({
                 "message": "There is a problem, there is a missed value",
@@ -45,8 +58,19 @@ export const loadPublicationChunk = async(req, res) => {
             nPublications: 0,
             status:false
         }
-        for (let i = 0; i < 6; i++) {
-            chunk.chunkList.push(await Publication.findOne({"orderId" : reqOrderId + i}))
+        let chunkLength = 10
+        for (let i = 0; i < chunkLength; i++) {
+            const publicationData = await Publication.findOne({"orderId" : reqOrderId + i})
+            const publicationCopy = {
+                "date" : publicationData.date,
+                "title" : publicationData.title,
+                "description" : publicationData.description,
+                "orderId" : publicationData.orderId,
+                "imageSrc" : publicationData.imageSrc.toString("base64"),
+                "imageName" : publicationData.imageName,
+                "imageType" : publicationData.imageType,
+            }
+            chunk.chunkList.push(publicationCopy)
             chunk.nPublications++
             chunk.status = true
         }

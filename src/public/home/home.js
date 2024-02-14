@@ -45,9 +45,10 @@ async function loadPublications (starting) {
                     }
                 })
                 if (starting == true) {
+                    loadingPublications = false
                     generateGalleryImages()
                 }
-                loadPublicationsToGallery()
+            loadPublicationsToGallery()
             loadingPublications = false
             } else throw new Error("Undefined response");
             })
@@ -68,13 +69,13 @@ function findPublication (idp) {
     return foundPublication
 }
 
-
 function galleryImgButtonClick (idp) {
     if(!windowGalleryStatus) document.documentElement.style.overflowY = "hidden";
     let publication = findPublication(idp)
     try {
+        const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
         publication.windowHtml = `<div class="gallery-window-img-div-c">
-            <img src="${publication.src}" alt="Gallery img">
+            <img src="${imageSrc}" alt="Gallery img">
         </div>
         <div class="gallery-window-control-panel-c">
             <i id="image-window-exit-button" class='bx bx-exit' onclick = closePublicationWindow(${publication.orderId})></i>
@@ -115,8 +116,9 @@ function closePublicationWindow (idp) {
 function loadPublicationsToGallery () {
     publicationsList.forEach(publication => {
         if (!publication.loadStatus) {
+            const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
             galleryOpenedSection.innerHTML += `<div class="gallery-opened-img-div-c" onclick = galleryImgButtonClick(${publication.orderId})>
-            <img id="gallery-opened-img${publication.orderId}" class="gallery-opened-img-c" src="${publication.src}" alt="Gallery Img">
+            <img id="gallery-opened-img${publication.orderId}" class="gallery-opened-img-c" src="${imageSrc}" alt="Gallery Img">
             </div>`
             publication.loadStatus = true
         }
@@ -148,8 +150,9 @@ function changePublication (lastId, newId) {
 function generateGalleryImages () {
     publicationsList.forEach(publication => {
         if (galleryIndex < 6) {
+            const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
             mainGallery.innerHTML += `<div class="gallery-img-div-c" onclick = galleryImgButtonClick(${publication.orderId})>
-            <img class="main-gallery-img-c" src="${publication.src}" alt="Main Gallery Img">
+            <img class="main-gallery-img-c" src="${imageSrc}" alt="Gallery Publication">
             <button id="gallery-img-button${publication.orderId}" class="gallery-img-button-c" onclick = galleryImgButtonClick(${publication.orderId})><i class='bx bx-message-square'></i>Open</button>
             </div>`
             galleryIndex++
