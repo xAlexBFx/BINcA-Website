@@ -61,18 +61,22 @@ export const loadPublicationChunk = async(req, res) => {
         let chunkLength = 10
         for (let i = 0; i < chunkLength; i++) {
             const publicationData = await Publication.findOne({"orderId" : reqOrderId + i})
-            const publicationCopy = {
-                "date" : publicationData.date,
-                "title" : publicationData.title,
-                "description" : publicationData.description,
-                "orderId" : publicationData.orderId,
-                "imageSrc" : publicationData.imageSrc.toString("base64"),
-                "imageName" : publicationData.imageName,
-                "imageType" : publicationData.imageType,
+            if(publicationData) {
+                const publicationCopy = {
+                    "date" : publicationData.date,
+                    "title" : publicationData.title,
+                    "description" : publicationData.description,
+                    "orderId" : publicationData.orderId,
+                    "imageSrc" : publicationData.imageSrc.toString("base64"),
+                    "imageName" : publicationData.imageName,
+                    "imageType" : publicationData.imageType,
+                }
+                chunk.chunkList.push(publicationCopy)
+                chunk.nPublications++
+                chunk.status = true
+            } else {
+                throw new Error("There are not more publications")
             }
-            chunk.chunkList.push(publicationCopy)
-            chunk.nPublications++
-            chunk.status = true
         }
         res.json(chunk)
     } catch (err) {

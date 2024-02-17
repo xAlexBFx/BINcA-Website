@@ -1,4 +1,4 @@
-"use-strict"
+"use strict"
 const titleInputDiv = document.getElementById("title-input-div");
 const descriptionInputDiv = document.getElementById("description-input-div");
 const fileInputDiv = document.getElementById("file-input-div");
@@ -6,7 +6,8 @@ const requestForm = document.getElementById("request-form");
 const titleInput = document.getElementById("title-input");
 const descriptionInput = document.getElementById("description-input");
 const fileInput = document.getElementById("file-input");
-const formSubmitButton = document.getElementById("form-submit-button");
+const previewButton = document.getElementById("preview-button");
+const previewBaseDiv = document.getElementById("image-window-base")
 const fileSelectorImageDiv = document.getElementById("file-selector-image-div");
 const fileImageH1 = document.getElementById("file-image-h1");
 const InputFilter = /^[a-zA-Z0-9.,;:!?()'"¡¿_\-\s]*$/;

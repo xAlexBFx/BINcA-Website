@@ -193,7 +193,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 10rem;
+    height: 15rem;
     background-color: transparent;
     border-radius: 4px;
     border: 2px dashed var(--secondary-background-color);
@@ -250,7 +250,7 @@
     height: 3rem;
     padding: 5%;
     box-sizing: border-box;
-    width: 50%;
+    width: 40%;
     border-radius: 4px;
     border: 1px solid var(--secondary-background-color);
     transition: border .6s;
@@ -258,6 +258,7 @@
     color: var(--primary-font-color);
     background-color: var(--primary-color);
     font-size: var(--primary-font-size);
+    cursor: pointer;
 }
 
 .form-submit-button-c:hover {
@@ -280,11 +281,11 @@
     width: 100%;
 }
 
-.bx-send {
+.form-submit-button-c i {
     color: var(--primary-font-color);
     transition: transform .6s;
 }
 
-.form-submit-button-c:hover .bx-send {
+.form-submit-button-c:hover i {
     transform: translateX(15px);
 }

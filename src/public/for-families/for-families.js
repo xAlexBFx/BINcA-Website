@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 const familyTeamPresentations = document.getElementById("family-team-presentations");
 
 let currentAppreciationId = null;

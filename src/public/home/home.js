@@ -73,7 +73,7 @@ function galleryImgButtonClick (idp) {
     if(!windowGalleryStatus) document.documentElement.style.overflowY = "hidden";
     let publication = findPublication(idp)
     try {
-        const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
+        const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`;
         publication.windowHtml = `<div class="gallery-window-img-div-c">
             <img src="${imageSrc}" alt="Gallery img">
         </div>
