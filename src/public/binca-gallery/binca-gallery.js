@@ -6,11 +6,15 @@ const requestForm = document.getElementById("request-form");
 const titleInput = document.getElementById("title-input");
 const descriptionInput = document.getElementById("description-input");
 const fileInput = document.getElementById("file-input");
-const previewButton = document.getElementById("preview-button");
+const previewPublicationButton = document.getElementById("preview-publication-button");
 const previewBaseDiv = document.getElementById("image-window-base")
+const previewWindowStatus = false;
+let previewWindowHtml = null;
 const fileSelectorImageDiv = document.getElementById("file-selector-image-div");
 const fileImageH1 = document.getElementById("file-image-h1");
 const InputFilter = /^[a-zA-Z0-9.,;:!?()'"¡¿_\-\s]*$/;
+const galleryImageWindowSection = document.getElementById("gallery-image-window-section");
+const imageWindowBase = document.getElementById("image-window-base");
 
 requestForm.setAttribute('novalidate', 'true');
 
@@ -26,6 +30,54 @@ fileInput.addEventListener('change', (event) => {
 function verifyFileType(file) {
     const allowedFileTypes = ['image/jpeg', 'image/png'];
     return allowedFileTypes.includes(file.type);
+}
+
+previewPublicationButton.addEventListener("click", () => {
+    displayPreviewPublication()
+})
+
+function displayPreviewPublication() {
+    if(!previewWindowStatus) document.documentElement.style.overflowY = "hidden";
+    try {
+        const previewImage = fileInput.files[fileInput.files.length - 1];
+        previewWindowHtml = `<div id="gallery-window-img-div" class="gallery-window-img-div-c">
+        </div>
+        <div id="gallery-window-control-panel" class="gallery-window-control-panel-c">
+            <i id="image-window-exit-button" class='bx bx-exit' onclick = closePreviewWindow()></i>
+        </div>
+        <div class="gallery-window-content-div-c">
+            <h1>${titleInput.value}</h1>
+            <p>${descriptionInput.value}</p>
+            <div class="gallery-content-buttons-div-c">
+                <button class="gallery-content-buttons-c">Hello</button>
+                <button class="gallery-content-buttons-c">bye</button>
+            </div>
+        </div>`
+        if (previewImage) {
+            const lector = new FileReader();
+            lector.onload = function (e) {
+                document.getElementById("gallery-window-img-div").innerHTML = `<img src="${e.target.result}" alt="Your Image">`
+            };  
+            lector.readAsDataURL(previewImage);
+        }
+    } catch (err) {
+        console.error(err) 
+        return;
+    }
+    galleryImageWindowSection.style.opacity = "1"
+    imageWindowBase.innerHTML = previewWindowHtml;
+    galleryImageWindowSection.style.top = "0"
+}
+
+function closePreviewWindow () {
+    if(!previewWindowStatus) document.documentElement.style.overflowY = "auto";
+    galleryImageWindowSection.style.pointerEvents = "none"
+    previewWindowHtml = null
+    galleryImageWindowSection.style.top = "-200vh"
+    setTimeout(function () {
+        galleryImageWindowSection.style.pointerEvents = "auto"
+        galleryImageWindowSection.style.opacity = "0"
+    }, 600)
 }
 
 requestForm.addEventListener("submit", function (event) {

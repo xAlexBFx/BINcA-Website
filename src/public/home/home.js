@@ -2,7 +2,7 @@
 const mainGalleryButton = document.getElementById("main-gallery-button");
 const principalImgSection = document.getElementById("principal-img-section")
 const galleryImageWindowSection = document.getElementById("gallery-image-window-section");
-const imageWindowBase = document.getElementById("image-window-base")
+const imageWindowBase = document.getElementById("image-window-base");
 const galleryWindowSection = document.getElementById("gallery-window-section");
 const galleryOpenedSection = document.getElementById("gallery-opened-section");
 const galleryOpenedImg = document.getElementById("gallery-opened-img");
@@ -93,7 +93,7 @@ function galleryImgButtonClick (idp) {
         </div>`
     } catch (err) {
         console.error(err) 
-        return
+        return;
     }
     
     galleryImageWindowSection.style.opacity = "1"

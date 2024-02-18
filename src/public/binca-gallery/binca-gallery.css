@@ -241,6 +241,65 @@
     animation: errorAnimation .8s;
 }
 
+.form-buttons-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.preview-publication-button-c {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 5%;
+    box-sizing: border-box;
+    width: 40%;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-background-color);
+    transition: border .6s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.29);
+    color: var(--primary-font-color);
+    background-color: var(--secondary-background-color);
+    font-size: var(--primary-font-size);
+    cursor: pointer;
+}
+
+.preview-publication-button-c:hover {
+    border: 1px solid var(--primary-color-hover);
+}
+
+.preview-publication-button-c::after {
+    content: "";
+    width: 0%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color-hover);
+    transition: width .6s;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.preview-publication-button-c:hover::after {
+    width: 100%;
+}
+
+.preview-publication-button-c i {
+    color: var(--primary-color-hover);
+    transition: transform .6s;
+}
+
+.preview-publication-button-c:hover i {
+    transform: translateX(15px);
+}
+
 .form-submit-button-c {
     overflow: hidden;
     position: relative;
@@ -288,4 +347,162 @@
 
 .form-submit-button-c:hover i {
     transform: translateX(15px);
+}
+
+.gallery-image-window-section-c {
+    position: fixed;
+    display: flex;
+    top: -200vh;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(10px);
+    z-index: 13;
+    transition: top .6s;
+}
+
+
+.image-window-base-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    max-height: 600px;
+}
+
+.gallery-window-img-div-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.774);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.gallery-window-img-div-c img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.gallery-window-control-panel-c {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 10%;
+    height: 100%;
+    padding: 1%;
+    border-radius: 4px;
+    background-color: var(--secondary-background-color);
+    box-sizing: border-box;
+    font-size: var(--headers-font-size);
+    color: var(--primary-color-hover);
+    border: 1px solid rgba(0, 0, 0, 0.301);
+}
+
+.gallery-window-control-panel-c i {
+    cursor: pointer;
+    transition: transform .2s;
+    color: var(--negative-color);
+    font-size: var(--headers-font-size);
+}
+
+.bx-exit:active {
+    transform: translateX(10px);
+}
+
+.gallery-window-content-div-c {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: var(--secondary-background-color);
+    width: 40%;
+    height: 100%;
+    border-radius: 0px 10px 10px 0px;
+    padding: 2%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.gallery-window-content-div-c h1 {
+    color: var(--primary-font-color);
+    font-size: var(--headers-font-size);
+}
+
+.gallery-window-content-div-c p {
+    color: var(--secondary-font-color);
+    margin: 2% 0px 2% 0px;
+    font-size: var(--secondary-font-size);
+}
+
+.gallery-window-content-div-c h2 {
+    color: var(--primary-font-color);
+    font-size: var(--secondary-font-size);
+}
+
+.gallery-content-buttons-div-c {
+    font-size: var(--primary-font-size);
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+}
+
+.gallery-content-buttons-c {
+    font-size: var(--secondary-font-size);
+    color: var(--primary-font-color);
+    padding: 2%;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    margin: 0px 1% 0px 1%;
+    border-radius: 4px;
+    width: 40%;
+    height: 100%;
+    max-width: 150px;
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.521);
+    transition: border .6s;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-content-buttons-c::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-color-hover);
+    border-radius: 4px 4px 0px 0px;
+    transition: width .6s;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-content-buttons-c:hover {
+    border: 1px solid var(--primary-color-hover);
+}
+
+.gallery-content-buttons-c:hover::after {
+    width: 100%;
 }
