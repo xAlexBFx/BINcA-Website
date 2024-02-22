@@ -1,15 +1,9 @@
 "use strict"
-const familyTeamPresentations = document.getElementById("family-team-presentations");
-
 let currentAppreciationId = null;
-
 let appreciationList = [];
-
-////////////////////////////////FIX THE ANIMATION AT THE END OF THE RELOAD//////////////////////////////////////////
-
-let memberList = []
-let newMember = null
-
+let memberList = [];
+let newMember = null;
+const familyTeamPresentations = document.getElementById("family-team-presentations");
 class Member {
     constructor(name, img, rol, id) {
         this.name = name,
@@ -26,7 +20,7 @@ class Member {
     }
 }
 
-function addMember(name, img, rol, ) {
+const addMember = (name, img, rol, ) => {
     newMember = new Member(name, img, rol, memberList.length)
     memberList.push(newMember)
     return newMember
@@ -37,5 +31,4 @@ let gustavo = addMember("Gustavo Nascimento", "./src/gustavo.webp", "Attendance 
 let Crismeiry = addMember("Crismeiry Mejia", "../general/src/bincalogo.png", "Attendance Paraprofessional")
 for (let i = 0; i < memberList.length; i++) {
     familyTeamPresentations.innerHTML += memberList[i].html
-    
 }

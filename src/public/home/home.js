@@ -1,4 +1,11 @@
 "use strict";
+let publicationIndex = 0;
+let requestId = 1;
+let windowGalleryStatus = false
+let galleryIndex = 0
+let publicationsList = []
+let loadingPublications = false
+
 const mainGalleryButton = document.getElementById("main-gallery-button");
 const principalImgSection = document.getElementById("principal-img-section")
 const galleryImageWindowSection = document.getElementById("gallery-image-window-section");
@@ -12,27 +19,9 @@ const galleryBackButton = document.getElementById("gallery-back-button");
 const mainGallery = document.getElementById("main-gallery");
 const galleryOpenedContainer = document.getElementById("gallery-opened-grid-container")
 
-let publicationIndex = 0;
-let requestId = 1;
-let windowGalleryStatus = false
-let galleryIndex = 0
-let publicationsList = []
-let loadingPublications = false
-
 principalImgSection.style.opacity = "1";
 
-if (galleryWindowSection.style.opacity == 0) {
-    galleryBackButton.addEventListener("click", () => {
-        windowGalleryStatus = false
-        galleryWindowSection.style.top = "-100vh"
-        document.documentElement.style.overflowY = "scroll"
-        setTimeout(function () {
-            galleryWindowSection.style.opacity = "0"
-        }, 600)
-    })
-};
-
-async function loadPublications (starting) { 
+const loadPublications = async(starting) => { 
     loadingPublications = true
     await fetch(`http://localhost:8080/home/${requestId}`)
         .then(response => response.json())
@@ -57,7 +46,7 @@ async function loadPublications (starting) {
 
 loadPublications(true)
 
-function findPublication (idp) {
+const findPublication =  (idp) => {
     let foundPublication;
     try{
         foundPublication = publicationsList.find((publication) => publication.orderId == idp)
@@ -65,11 +54,10 @@ function findPublication (idp) {
         console.error(`There is not publication with id: ${idp}`)
         return;
     }
-
     return foundPublication
 }
 
-function galleryImgButtonClick (idp) {
+const galleryImgButtonClick =  (idp) => {
     if(!windowGalleryStatus) document.documentElement.style.overflowY = "hidden";
     let publication = findPublication(idp)
     try {
@@ -101,7 +89,7 @@ function galleryImgButtonClick (idp) {
     galleryImageWindowSection.style.top = "0"
 }
 
-function closePublicationWindow (idp) {
+const closePublicationWindow =  (idp) => {
     if(!windowGalleryStatus) document.documentElement.style.overflowY = "auto";
     let publication = findPublication(idp)
     publication.windowHtml = null;
@@ -113,7 +101,7 @@ function closePublicationWindow (idp) {
     }, 600)
 }
 
-function loadPublicationsToGallery () {
+const loadPublicationsToGallery = () => {
     publicationsList.forEach(publication => {
         if (!publication.loadStatus) {
             const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
@@ -125,14 +113,7 @@ function loadPublicationsToGallery () {
     })
 }
 
-mainGalleryButton.addEventListener("click", function () {
-    windowGalleryStatus = true
-    galleryWindowSection.style.opacity = "1"
-    galleryWindowSection.style.top = "0"
-    document.documentElement.style.overflowY = "hidden"
-});
-
-function changePublication (lastId, newId) {
+const changePublication = (lastId, newId) => {
     if (newId < 1) {
         newId = publicationsList.length
         findPublication(lastId).windowHtml = null
@@ -147,7 +128,7 @@ function changePublication (lastId, newId) {
     }
 }
 
-function generateGalleryImages () {
+const generateGalleryImages = () => {
     publicationsList.forEach(publication => {
         if (galleryIndex < 6) {
             const imageSrc = `data:${publication.imageType};base64,${publication.imageSrc}`
@@ -160,11 +141,27 @@ function generateGalleryImages () {
     })
 }
 
+if (galleryWindowSection.style.opacity == 0) {
+    galleryBackButton.addEventListener("click", () => {
+        windowGalleryStatus = false
+        galleryWindowSection.style.top = "-100vh"
+        document.documentElement.style.overflowY = "scroll"
+        setTimeout(function () {
+            galleryWindowSection.style.opacity = "0"
+        }, 600)
+    })
+};
+
+mainGalleryButton.addEventListener("click", () => {
+    windowGalleryStatus = true
+    galleryWindowSection.style.opacity = "1"
+    galleryWindowSection.style.top = "0"
+    document.documentElement.style.overflowY = "hidden"
+});
+
 galleryOpenedContainer.addEventListener("scroll", () => {
     if (windowGalleryStatus == true && loadingPublications == false){
-        const myScroll = galleryOpenedContainer.scrollHeight - galleryOpenedContainer.scrollTop
-        const containerLowerScroll = galleryOpenedContainer.offsetHeight 
-        if(myScroll <= containerLowerScroll + 10) {
+        if(galleryOpenedContainer.scrollHeight - galleryOpenedContainer.scrollTop <= galleryOpenedContainer.offsetHeight + 10) {
             loadPublications(false)
         }
     }

@@ -1,6 +1,6 @@
 import Publication from '../models/publication.js';
 
-function getCleanDate() {
+const getCleanDate = () => {
     let dateNow = new Date();
 
     let month = String(dateNow.getMonth() + 1).padStart(2, '0');
@@ -73,12 +73,18 @@ export const loadPublicationChunk = async(req, res) => {
                 }
                 chunk.chunkList.push(publicationCopy)
                 chunk.nPublications++
-                chunk.status = true
             } else {
-                throw new Error("There are not more publications")
+                break;
             }
         }
-        res.json(chunk)
+        if(chunk.nPublications > 0) { 
+            chunk.status = true
+            res.json(chunk)
+        } else {
+            res.status(404).json({
+                message: `There is an error: ${err}`
+            })
+        }
     } catch (err) {
         console.log(`There is a problem in the server: ${err}`)
     }

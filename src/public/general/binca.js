@@ -1,8 +1,7 @@
 "use strict";
+let preScrollPost = window.scrollY;
 const header = document.getElementById("header");
 const navDesktop = document.getElementById("nav-desktop");
-
-let preScrollPost = window.scrollY;
 
 window.addEventListener("scroll", function () {
     let currentScrollPos = window.scrollY;
@@ -16,5 +15,5 @@ window.addEventListener("scroll", function () {
     preScrollPost = currentScrollPos;
 });
 
-    header.style.top = "0";
+header.style.top = "0";
 //document.body.classList.add("dark")

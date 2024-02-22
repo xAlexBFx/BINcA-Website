@@ -1,4 +1,5 @@
 "use strict"
+let previewWindowHtml = null;
 const titleInputDiv = document.getElementById("title-input-div");
 const descriptionInputDiv = document.getElementById("description-input-div");
 const fileInputDiv = document.getElementById("file-input-div");
@@ -9,7 +10,6 @@ const fileInput = document.getElementById("file-input");
 const previewPublicationButton = document.getElementById("preview-publication-button");
 const previewBaseDiv = document.getElementById("image-window-base")
 const previewWindowStatus = false;
-let previewWindowHtml = null;
 const fileSelectorImageDiv = document.getElementById("file-selector-image-div");
 const fileImageH1 = document.getElementById("file-image-h1");
 const InputFilter = /^[a-zA-Z0-9.,;:!?()'"¡¿_\-\s]*$/;
@@ -17,15 +17,6 @@ const galleryImageWindowSection = document.getElementById("gallery-image-window-
 const imageWindowBase = document.getElementById("image-window-base");
 
 requestForm.setAttribute('novalidate', 'true');
-
-fileInput.addEventListener('change', (event) => {
-    const selectedFile = event.target.files[event.target.files.length - 1];
-    if (selectedFile && verifyFileType(selectedFile)) {
-            showSelectedImage(selectedFile)
-    } else {
-        errorParagraphControl(fileInput ,"You must select an image");
-    }
-});
 
 function verifyFileType(file) {
     const allowedFileTypes = ['image/jpeg', 'image/png'];
@@ -80,6 +71,48 @@ function closePreviewWindow () {
     }, 600)
 }
 
+function validateInput(input) {
+    if(InputFilter.test(input.value) == true) return true;
+
+    else if((InputFilter.test(input.value) == false)){ 
+        return false;
+    }
+}
+
+function showSelectedImage (image) {
+    if (image) {
+        const lector = new FileReader();
+        lector.onload = function (e) {
+            fileImageH1.style.display = "none";
+            fileSelectorImageDiv.innerHTML =`<img src="${e.target.result}" alt="Your Image">`;
+        };  
+        lector.readAsDataURL(image);
+    }
+}
+
+function errorParagraphControl (input, err) {
+    const paragraph = document.getElementById(`${input.id}-error-paragraph`) 
+    if(!paragraph.classList.contains("active-error-c")) {
+        input.classList.add("input-error-c")
+        paragraph.textContent = err
+        paragraph.classList.add("active-error-c")
+        setTimeout(()=> {
+            input.classList.remove("input-error-c")
+            paragraph.textContent = ""
+            paragraph.classList.remove("active-error-c")
+        }, 10000)
+    }
+}
+
+fileInput.addEventListener('change', (event) => {
+    const selectedFile = event.target.files[event.target.files.length - 1];
+    if (selectedFile && verifyFileType(selectedFile)) {
+            showSelectedImage(selectedFile)
+    } else {
+        errorParagraphControl(fileInput ,"You must select an image");
+    }
+});
+
 requestForm.addEventListener("submit", function (event) {
     event.preventDefault();
     if(titleInput.value.length > 8 && titleInput.value.length <= 30) {
@@ -119,36 +152,3 @@ requestForm.addEventListener("submit", function (event) {
         errorParagraphControl(titleInput, "Type a minimum of 8 characters and a maximum of 30")
     }
 })
-
-function validateInput(input) {
-    if(InputFilter.test(input.value) == true) return true;
-
-    else if((InputFilter.test(input.value) == false)){ 
-        return false;
-    }
-}
-
-function showSelectedImage (image) {
-    if (image) {
-        const lector = new FileReader();
-        lector.onload = function (e) {
-            fileImageH1.style.display = "none";
-            fileSelectorImageDiv.innerHTML =`<img src="${e.target.result}" alt="Your Image">`;
-        };  
-        lector.readAsDataURL(image);
-    }
-}
-
-function errorParagraphControl (input, err) {
-    const paragraph = document.getElementById(`${input.id}-error-paragraph`) 
-    if(!paragraph.classList.contains("active-error-c")) {
-        input.classList.add("input-error-c")
-        paragraph.textContent = err
-        paragraph.classList.add("active-error-c")
-        setTimeout(()=> {
-            input.classList.remove("input-error-c")
-            paragraph.textContent = ""
-            paragraph.classList.remove("active-error-c")
-        }, 10000)
-    }
-}
