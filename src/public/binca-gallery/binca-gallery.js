@@ -109,6 +109,7 @@ fileInput.addEventListener('change', (event) => {
     if (selectedFile && verifyFileType(selectedFile)) {
             showSelectedImage(selectedFile)
     } else {
+        fileSelectorImageDiv.innerHTML ='<h1>Your Image</h1>'
         errorParagraphControl(fileInput ,"You must select an image");
     }
 });
