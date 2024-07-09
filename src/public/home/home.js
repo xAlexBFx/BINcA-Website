@@ -39,7 +39,8 @@ const loadPublications = async(starting) => {
                 }
             loadPublicationsToGallery()
             loadingPublications = false
-            } else throw new Error("Undefined response");
+            console.log(publicationsChunk)
+            } else console.log('All images loaded');
             })
             .catch (error => console.error('Error:', error))
 }

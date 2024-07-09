@@ -81,8 +81,8 @@ export const loadPublicationChunk = async(req, res) => {
             chunk.status = true
             res.json(chunk)
         } else {
-            res.status(404).json({
-                message: `There is an error: ${err}`
+            res.status(200).json({
+                message: `All images loaded`
             })
         }
     } catch (err) {
