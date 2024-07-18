@@ -18,12 +18,13 @@ const galleryOpenedPanelControl = document.getElementById("gallery-opened-panel-
 const galleryBackButton = document.getElementById("gallery-back-button");
 const mainGallery = document.getElementById("main-gallery");
 const galleryOpenedContainer = document.getElementById("gallery-opened-grid-container")
+const ServerURI= "http://10.226.62.28:8080"
 
 principalImgSection.style.opacity = "1";
 
 const loadPublications = async(starting) => { 
     loadingPublications = true
-    await fetch(`http://localhost:8080/home/${requestId}`)
+    await fetch(`${ServerURI}/home/${requestId}`)
         .then(response => response.json())
         .then(publicationsChunk => {
             if(publicationsChunk.nPublication !== 0 && publicationsChunk.status == true ){

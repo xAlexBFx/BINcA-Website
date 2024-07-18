@@ -15,6 +15,7 @@ const fileImageH1 = document.getElementById("file-image-h1");
 const InputFilter = /^[a-zA-Z0-9.,;:!?()'"¡¿_\-\s]*$/;
 const galleryImageWindowSection = document.getElementById("gallery-image-window-section");
 const imageWindowBase = document.getElementById("image-window-base");
+const ServerURI= "http://10.226.62.28:8080"
 
 requestForm.setAttribute('novalidate', 'true');
 
@@ -124,7 +125,7 @@ requestForm.addEventListener("submit", function (event) {
                             if (verifyFileType(fileInput.files[fileInput.files.length - 1])) {
                                     try {
                                         const formData = new FormData(this)
-                                        fetch('http://localhost:8080/binca-gallery', {
+                                        fetch(`${ServerURI}/binca-gallery`, {
                                             method: 'POST',
                                             body: formData,
                                         })

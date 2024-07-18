@@ -18,3 +18,7 @@ window.addEventListener("scroll", function () {
 
 header.style.top = "0";
 //document.body.classList.add("dark")
+
+// const openPhoneMenu = ()=> {
+
+// }
