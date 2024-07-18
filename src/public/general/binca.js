@@ -2,6 +2,7 @@
 let preScrollPost = window.scrollY;
 const header = document.getElementById("header");
 const navDesktop = document.getElementById("nav-desktop");
+const menuIcon = document.getElementById("menu-icon");
 
 window.addEventListener("scroll", function () {
     let currentScrollPos = window.scrollY;

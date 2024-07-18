@@ -33,6 +33,20 @@
         --headers-font-size: 1.2rem;
     }
 
+    .nav-desktop-c {
+        height: 80px;
+        padding: 2%;
+    }
+
+    .nav-desktop-buttons-c {
+        display: none;
+    }
+    .bx-menu {
+        opacity: 1;
+        user-select:auto;
+
+    }
+
     .footer-c {
         flex-direction: column;
         height: 60rem;

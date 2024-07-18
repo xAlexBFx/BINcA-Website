@@ -79,6 +79,7 @@ body {
     border-radius: 5px;
 }
 
+
 .header-c {
     position: relative;
     display: flex;
@@ -150,6 +151,14 @@ body {
 
 .header-div-c.header-div-background-c h1 {
     color: var(--primary-color)
+}
+
+.bx-menu {
+    opacity: 0;
+    user-select: none;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--primary-color);
 }
 
 .nav-desktop-c {

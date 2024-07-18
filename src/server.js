@@ -6,9 +6,11 @@ import express from 'express';
 import interFaceRouter from './routes/interface.js';
 import "./database.js";
 import "dotenv";
+import qrCode from 'qrcode-terminal';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 const app = express();
 
@@ -22,8 +24,10 @@ app.use(interFaceRouter)
 
 app.use((req, res)=>res.redirect('/home'))
 
-app.listen(app.get('port'), () => {
-    console.log(`App On Port ${app.get('port')} :)`)
+const serverLink = `http://${process.env.SERVER_IP}:${app.get('port')}`
+
+app.listen(app.get('port'), `${process.env.SERVER_IP}`, () => {
+    console.log(`API at ${serverLink} :)`)
 }); 
 
 export {

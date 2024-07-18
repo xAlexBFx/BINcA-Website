@@ -140,6 +140,10 @@
     .gallery-opened-grid-container-c {
         width: 80%;
     }
+    .gallery-opened-panel-control-c {
+        width: 10%;
+        font-size: 30px;
+    }
 }
 
 /*Vertical phones*/
@@ -214,5 +218,9 @@
 
     .gallery-opened-grid-container-c {
         width: 80%;
+    }
+    .gallery-opened-panel-control-c {
+        width: 10%;
+        font-size: 25px;
     }
 }
