@@ -1,7 +1,5 @@
 .env
 node_modules
 package-lock.json
-src/images
-src/.babelrc
 package-lock.json
 node_modules
