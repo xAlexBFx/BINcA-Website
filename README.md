@@ -1,6 +1,5 @@
 # My schoolar website
 
-My first project in github
 
 ## Description
 
