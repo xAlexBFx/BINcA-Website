@@ -18,7 +18,7 @@ const galleryOpenedPanelControl = document.getElementById("gallery-opened-panel-
 const galleryBackButton = document.getElementById("gallery-back-button");
 const mainGallery = document.getElementById("main-gallery");
 const galleryOpenedContainer = document.getElementById("gallery-opened-grid-container")
-const ServerURI= "http://10.226.62.28:8080"
+const ServerURI= "http://10.1.10.116:8080";
 
 principalImgSection.style.opacity = "1";
 

@@ -15,7 +15,7 @@ const fileImageH1 = document.getElementById("file-image-h1");
 const InputFilter = /^[a-zA-Z0-9.,;:!?()'"¡¿_\-\s]*$/;
 const galleryImageWindowSection = document.getElementById("gallery-image-window-section");
 const imageWindowBase = document.getElementById("image-window-base");
-const ServerURI= "http://10.226.62.28:8080"
+const ServerURI= "http://10.1.10.116:8080";
 
 requestForm.setAttribute('novalidate', 'true');
 

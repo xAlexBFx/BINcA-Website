@@ -30,7 +30,7 @@ router.get('/binca-gallery', (req, res) => {
     res.sendFile(path.join(serverDirName, 'public', 'binca-gallery', 'binca-gallery.html'));
 })
 
-router.post('/binca-gallery',upload.single("image"), publicationCtrl.createPublication)
+router.post('/binca-gallery',upload.single('image'), publicationCtrl.createPublication)
 
 router.delete('/delete-publication/:oId', publicationCtrl.deletePublication)
 
