@@ -8,11 +8,11 @@ This is a personal project of a High School website with a gallery publication s
 
 
 ## Technologies
--JavaScript
--HTML
--CSS
--NodeJS
--MongoDB
+- JavaScript
+- HTML
+- CSS
+- NodeJS
+- MongoDB
 
 
 
