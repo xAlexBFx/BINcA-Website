@@ -1,4 +1,5 @@
 # BINcA Website
+![BINcA- Opera 4_4_2025 8_35_09 AM](https://github.com/user-attachments/assets/a1a155c9-862b-400f-9b1c-8caf7694b6b7)
 
 A modern high school website built with Node.js and Express.js, designed as a personal project to showcase school information and features.
 
